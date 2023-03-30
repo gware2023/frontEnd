@@ -14,7 +14,6 @@ module.exports = {
                 'login-bg2': "#eee",
                 'login-form-title': '#127369',
                 'login-form-title-border': '#10403B'
-
             }
         },
     },
