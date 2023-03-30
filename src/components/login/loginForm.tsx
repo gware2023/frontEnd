@@ -41,14 +41,14 @@ const LoginFormWrapper = styled.div`
 
 const LoginForm: React.FC = ({}) => {
   return (
-    <LoginFormWrapper>
-      <div className='title'>Login</div>
+    <div>
+      <div className='hover:bg-[#127369] mb-[20px] text-[20px] font-bold text-login-form-title'>Login</div>
       <form>
-        <input placeholder='ID' name="userId"/>
-        <input placeholder='Password' name="password" type="password"/>
-        <button>Login</button>
+        <input className='hover:bg-[#127369] border-b-[1px] border-solid border-login-form-title-border text-[15px] mb-[20px] bg-[#BFBFBF] text-[#000] w-full' placeholder='ID' name="userId"/>
+        <input className='hover:bg-[#127369] border-b-[1px] border-solid border-login-form-title-border text-[15px] mb-[20px] bg-[#BFBFBF] text-[#000] w-full' placeholder='Password' name="password" type="password"/>
+        <button className='hover:bg-[#127369] bg-[#8AA6A3] text-[#eee] rounded-[4px] p-[5px_10px] font-[15px] w-full font-bold cursor-pointer'>Login</button>
       </form>
-    </LoginFormWrapper>
+    </div>
   )
 }
 
