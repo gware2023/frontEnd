@@ -1,5 +1,5 @@
 import React from 'react';
-import PostsMain from "@/components/postsMain";
+import PostsMain from "../../components/postsMain";
 
 function Index() {
   return (
