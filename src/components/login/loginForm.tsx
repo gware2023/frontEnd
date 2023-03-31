@@ -40,11 +40,11 @@ const LoginForm: React.FC = ({}) => {
       <form onSubmit={(e) => onSubmit(e)}>
         <input onChange={(e) => setUserId(e.target.value)}
                value={userId}
-               className='hover:bg-[#127369] border-b-[1px] border-solid border-login-form-title-border text-[15px] mb-[20px] bg-[#BFBFBF] text-[#000] w-full'
+               className='outline-none border-b-[1px] border-solid border-login-form-title-border text-[15px] mb-[20px] bg-[#BFBFBF] text-[#000] w-full'
                placeholder='ID' name="userId"/>
         <input onChange={(e) => setPassword(e.target.value)}
                value={password}
-               className='hover:bg-[#127369] border-b-[1px] border-solid border-login-form-title-border text-[15px] mb-[20px] bg-[#BFBFBF] text-[#000] w-full'
+               className='outline-none border-b-[1px] border-solid border-login-form-title-border text-[15px] mb-[20px] bg-[#BFBFBF] text-[#000] w-full'
                placeholder='Password' name="password" type="password"/>
         <button type="submit"
                 className='hover:bg-[#127369] bg-[#8AA6A3] text-[#eee] rounded-[4px] p-[5px_10px] font-[15px] w-full font-bold cursor-pointer'>Login
