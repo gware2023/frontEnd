@@ -41,22 +41,22 @@ const FindForm: React.FC = ({}) => {
 
   return (
     <div>
-      <div className='mb-[20px] text-[20px] font-bold text-login-form-title'>Find Password</div>
+      <div className='mb-[20px] text-[20px] font-bold text-green2'>Find Password</div>
       <form onSubmit={onSubmit}>
         <input onChange={onChangeId}
           value={userId}
-          className='outline-none border-b-[1px] border-solid border-login-form-title-border text-[15px] mb-[20px] bg-[#BFBFBF] text-[#000] w-full'
+          className='outline-none border-b-[1px] border-solid border-green3 text-[15px] mb-[20px] bg-gray2 text-[#000] w-full'
           placeholder='ID' name="userId"/>
         <input onChange={onChangeName}
           value={userName}
-          className='outline-none border-b-[1px] border-solid border-login-form-title-border text-[15px] mb-[20px] bg-[#BFBFBF] text-[#000] w-full'
+          className='outline-none border-b-[1px] border-solid border-green3 text-[15px] mb-[20px] bg-gray2 text-[#000] w-full'
           placeholder='Name' name="userName"/>
         <input onChange={onChangeEmail}
           value={userEmail}
-          className='outline-none border-b-[1px] border-solid border-login-form-title-border text-[15px] mb-[20px] bg-[#BFBFBF] text-[#000] w-full'
+          className='outline-none border-b-[1px] border-solid border-green3 text-[15px] mb-[20px] bg-gray2 text-[#000] w-full'
           placeholder='Email' name="userEmail"/>
         <button type="submit"
-          className='hover:bg-[#127369] bg-[#8AA6A3] text-[#eee] rounded-[4px] p-[5px_10px] font-[15px] w-full font-bold cursor-pointer'>Find
+          className='hover:bg-green2 bg-green1 text-gray1 rounded-[4px] p-[5px_10px] font-[15px] w-full font-bold cursor-pointer'>Find
         </button>
       </form>
     </div>

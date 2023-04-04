@@ -7,6 +7,7 @@ import {useRouter} from "next/router";
 const LoginForm: React.FC = ({}) => {
   const [userId, setUserId] = useState('');
   const [password, setPassword] = useState('');
+  const router = useRouter();
 
   const onChangeId = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     setUserId(e.target.value);
@@ -16,8 +17,6 @@ const LoginForm: React.FC = ({}) => {
     setPassword(e.target.value);
   }, []);
 
-
-  const router = useRouter();
   const onSubmit = useCallback(async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(userId, password);
@@ -38,18 +37,18 @@ const LoginForm: React.FC = ({}) => {
 
   return (
     <div>
-      <div className='mb-[20px] text-[20px] font-bold text-login-form-title'>Login</div>
+      <div className='mb-[20px] text-[20px] font-bold text-green2'>Login</div>
       <form onSubmit={onSubmit}>
         <input onChange={onChangeId}
           value={userId}
-          className='outline-none border-b-[1px] border-solid border-login-form-title-border text-[15px] mb-[20px] bg-[#BFBFBF] text-[#000] w-full'
+          className='outline-none border-b-[1px] border-solid border-green3 text-[15px] mb-[20px] bg-gray2 text-[#000] w-full'
           placeholder='ID' name="userId"/>
         <input onChange={onChangePw}
           value={password}
-          className='outline-none border-b-[1px] border-solid border-login-form-title-border text-[15px] mb-[20px] bg-[#BFBFBF] text-[#000] w-full'
+          className='outline-none border-b-[1px] border-solid border-green3 text-[15px] mb-[20px] bg-gray2 text-[#000] w-full'
           placeholder='Password' name="password" type="password"/>
         <button type="submit"
-          className='hover:bg-[#127369] bg-[#8AA6A3] text-[#eee] rounded-[4px] p-[5px_10px] font-[15px] w-full font-bold cursor-pointer'>Login
+          className='hover:bg-green2 bg-green1 text-gray1 rounded-[4px] p-[5px_10px] font-[15px] w-full font-bold cursor-pointer'>Login
         </button>
       </form>
     </div>

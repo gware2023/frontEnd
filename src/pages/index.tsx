@@ -1,6 +1,21 @@
 import Head from 'next/head'
+import MainTemplate from '../components/Main/MainTemplate'
+import React, {useCallback} from 'react'
+import { useRouter } from 'next/router'
 
 export default function Home() {
+  const router = useRouter();
+
+  const onClickLogin = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    router.push('/login');
+  }, []);
+
+  const onClickMain = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    router.push('/main');
+  }, []);
+
   return (
     <>
       <Head>
@@ -10,6 +25,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico"/>
       </Head>
 
+      <ul>
+        <li><button onClick={onClickLogin}>로그인 페이지</button></li>
+        <li><button onClick={onClickMain}>메인 페이지</button></li>
+      </ul>
     </>
   )
 }
