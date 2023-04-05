@@ -32,25 +32,25 @@ const LoginForm: React.FC = ({}) => {
     //   .catch((error) => {
     //     console.log(error)
     //   })
-  }
+  };
   return (
     <div>
-      <div className='mb-[20px] text-[20px] font-bold text-login-form-title'>Login</div>
+      <div className="mb-[20px] text-[20px] font-bold text-login-form-title">Login</div>
       <form onSubmit={(e) => onSubmit(e)}>
         <input onChange={(e) => setUserId(e.target.value)}
                value={userId}
-               className='hover:bg-[#127369] border-b-[1px] border-solid border-login-form-title-border text-[15px] mb-[20px] bg-[#BFBFBF] text-[#000] w-full'
-               placeholder='ID' name="userId"/>
+               className="hover:bg-[#127369] border-b-[1px] border-solid border-login-form-title-border text-[15px] mb-[20px] bg-[#BFBFBF] text-[#000] w-full"
+               placeholder="ID" name="userId"/>
         <input onChange={(e) => setPassword(e.target.value)}
                value={password}
-               className='hover:bg-[#127369] border-b-[1px] border-solid border-login-form-title-border text-[15px] mb-[20px] bg-[#BFBFBF] text-[#000] w-full'
-               placeholder='Password' name="password" type="password"/>
+               className="hover:bg-[#127369] border-b-[1px] border-solid border-login-form-title-border text-[15px] mb-[20px] bg-[#BFBFBF] text-[#000] w-full"
+               placeholder="Password" name="password" type="password"/>
         <button type="submit"
-                className='hover:bg-[#127369] bg-[#8AA6A3] text-[#eee] rounded-[4px] p-[5px_10px] font-[15px] w-full font-bold cursor-pointer'>Login
+                className="hover:bg-[#127369] bg-[#8AA6A3] text-[#eee] rounded-[4px] p-[5px_10px] font-[15px] w-full font-bold cursor-pointer">Login
         </button>
       </form>
     </div>
-  )
-}
+  );
+};
 
 export default LoginForm;
