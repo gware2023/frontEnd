@@ -13,7 +13,8 @@ module.exports = {
                 'login-bg': "#BFBFBF",
                 'login-bg2': "#eee",
                 'login-form-title': '#127369',
-                'login-form-title-border': '#10403B'
+                'login-form-title-border': '#10403B',
+                'post-text': '#7b858e'
             }
         },
     },

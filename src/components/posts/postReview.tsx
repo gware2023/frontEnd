@@ -2,6 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import upIcon from '../../icons/up-arrow.png';
 import downIcon from '../../icons/down-arrow.png';
+import useTimeRemaining from "../../hooks/useTimeRemaining";
 
 const review = [
   "게시판 추가",
@@ -21,22 +22,18 @@ const review = [
 
 export default function PostReview() {
 
-  const ff = (time: string) => {
-    const timeDiff = new Date().getTime() - new Date(time).getTime();
-    const hours = Math.floor(timeDiff / 1000 / 60 / 60);
-    return hours > 24 ? `${Math.floor(hours / 24)}일 전` : `${hours}시간 전`;
-  };
+
 
   return (
     <div className="flex flex-col">
       {review.map((data, i) => (
         <div className={`p-[12px] flex border-b-2`} key={i}>
           <div className="flex flex-col text-center justify-center pr-4">
-            <button>
+            <button className="place-self-center">
               <Image width={12} alt={"up"} src={upIcon}/>
             </button>
-            <span className="text-[20px]">{Math.floor(Math.random() * 10)}</span>
-            <button>
+            <span className="text-[20px]">{Math.floor(Math.random() * 200)}</span>
+            <button className="place-self-center">
               <Image width={12} alt={"down"} src={downIcon}/>
             </button>
           </div>
@@ -45,7 +42,7 @@ export default function PostReview() {
               <div>{"아이콘"}</div>
               <span className="ml-0.5 font-bold">"닉네임"</span>
               <span
-                className="border-l ml-3 pl-3 text-[#7b858e]">{ff(String(new Date(2023, 3, Math.floor(Math.random() * 4) + 1)))}</span>
+                className="border-l ml-3 pl-3 text-[#7b858e]">{useTimeRemaining(String(new Date(2023, 3, Math.floor(Math.random() * 4) + 1)))}</span>
             </div>
             <div className="text-[18px]">{<div dangerouslySetInnerHTML={{__html: data}}/>}</div>
             <div className="text-[#7b858e]">

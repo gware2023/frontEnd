@@ -4,15 +4,14 @@ import PostAddView from "./postAddView";
 import PostReview from "./postReview";
 import axios from "axios";
 
-
 export default function PostMain() {
 
   return (
     <div>
       <h1 className="text-3xl font-bold underline">Posst</h1>
       {/*<PostAddView />*/}
-      {/*<PostView/>*/}
-      <PostReview />
+      <PostView/>
+      {/*<PostReview />*/}
 
     </div>
   );
