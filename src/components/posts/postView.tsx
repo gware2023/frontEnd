@@ -1,13 +1,59 @@
 import React, {useState} from 'react';
 import Image from "next/image";
 import upIcon from "../../icons/up-arrow.png";
-import downIcon from "../../icons/down-arrow.png";
+import seeIcon from "../../icons/see.png";
 import Link from "next/link";
 import useTimeRemaining from "../../hooks/useTimeRemaining";
-import axios from "axios";
+
 
 const data = [
   {
+    "postId": 9,
+    "title": "제목",
+    "userName": "조성일",
+    "time": "2023-03-30 16:53:47",
+    "viewCount": 0,
+    "recommendationCount": 0
+  },
+  {
+    "postId": 8,
+    "title": "제목",
+    "userName": "조성일",
+    "time": "2023-03-30 16:53:47",
+    "viewCount": 0,
+    "recommendationCount": 0
+  },
+  {
+    "postId": 4,
+    "title": "제목",
+    "userName": "조성일",
+    "time": "2023-03-30 16:53:41",
+    "viewCount": 0,
+    "recommendationCount": 0
+  }, {
+    "postId": 9,
+    "title": "제목",
+    "userName": "조성일",
+    "time": "2023-03-30 16:53:47",
+    "viewCount": 0,
+    "recommendationCount": 0
+  },
+  {
+    "postId": 8,
+    "title": "제목",
+    "userName": "조성일",
+    "time": "2023-03-30 16:53:47",
+    "viewCount": 0,
+    "recommendationCount": 0
+  },
+  {
+    "postId": 4,
+    "title": "제목",
+    "userName": "조성일",
+    "time": "2023-03-30 16:53:41",
+    "viewCount": 0,
+    "recommendationCount": 0
+  }, {
     "postId": 9,
     "title": "제목",
     "userName": "조성일",
@@ -53,8 +99,12 @@ export default function PostView() {
                 <span className="border-l ml-2 pl-3 text-post-text">{useTimeRemaining(item.time)}</span>
               </div>
             </Link>
-            <div className="text-post-text">
+            <div className="text-post-text flex">
               <span className="pr-2">{"유머"}</span>
+              <div className="border-l ml-2 pl-3 pr-2 flex items-center">
+                <Image alt={"seeIcon"} src={seeIcon} width={12}/>
+                <span className="pl-1">{item.viewCount}</span>
+              </div>
               <span className="border-l ml-2 pl-3">{item.userName}</span>
             </div>
           </div>
