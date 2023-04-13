@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import { useRecoilState } from "recoil";
 import { userStateAtom } from "../../recoil/user";
 
-const LoginForm: React.FC = () => {
+export default function LoginForm() {
   const [userId, setUserId] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
@@ -81,6 +81,4 @@ const LoginForm: React.FC = () => {
       </form>
     </div>
   );
-};
-
-export default LoginForm;
+}

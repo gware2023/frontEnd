@@ -6,7 +6,7 @@ import { useRecoilState } from "recoil";
 import { userStateAtom } from "../../recoil/user";
 import Error from "./Error";
 
-const FindForm: React.FC = ({}) => {
+export default function FindForm() {
   const [userId, setUserId] = useState("");
   const [userName, setUserName] = useState("");
   const [userEmail, setUserEmail] = useState("");
@@ -88,6 +88,4 @@ const FindForm: React.FC = ({}) => {
       </form>
     </div>
   );
-};
-
-export default FindForm;
+}

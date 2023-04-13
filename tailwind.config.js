@@ -17,14 +17,3 @@ module.exports = {
   },
   plugins: [],
 };
-
-{
-  /* <div>
-  <div className='bg-grey1 w-1/5 h-20'>grey1</div>
-  <div className='bg-grey2 w-1/5 h-20'>grey2</div>
-  <div className='bg-grey3 w-1/5 h-20'>grey3</div>
-  <div className='bg-green1 w-1/5 h-20'>green1</div>
-  <div className='bg-green2 w-1/5 h-20'>green2</div>
-  <div className='bg-green3 w-1/5 h-20'>green3</div>
-</div> */
-}
