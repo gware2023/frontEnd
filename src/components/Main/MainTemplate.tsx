@@ -53,6 +53,11 @@ export default function MainTemplate() {
     router.push("/profile");
   }, []);
 
+  // 관리자 페이지로 이동
+  const moveToAdmin = useCallback(() => {
+    router.push("/admin");
+  }, []);
+
   // 로그아웃
   // const signOut = useCallback(() => {
 
@@ -64,7 +69,11 @@ export default function MainTemplate() {
         onClick={onClick}
         elements={["Dashboard", "Posts", "Projects", "Organization"]}
       >
-        <MyMenu onToggle={onToggle} moveToProfile={moveToProfile} />
+        <MyMenu
+          onToggle={onToggle}
+          moveToProfile={moveToProfile}
+          moveToAdmin={moveToAdmin}
+        />
       </Nav>
 
       <Header currentComponent={currentComponent} />

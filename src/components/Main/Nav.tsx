@@ -40,6 +40,7 @@ export default function Nav({ onClick, elements, children }: NavProps) {
               )}
             </div>
           </div>
+          <span className="hidden">메인 페이지네션 & 마이 프로필 로고</span>
           {children}
         </div>
       </div>
