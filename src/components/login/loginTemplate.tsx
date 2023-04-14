@@ -3,7 +3,7 @@ import React, { useState, useCallback, useEffect } from "react";
 import LoginForm from "./LoginForm";
 import FindForm from "./FindForm";
 
-const LoginTemplate: React.FC = () => {
+export default function LoginTemplate() {
   const [toggle, setToggle] = useState(true);
 
   const onClick = useCallback(
@@ -31,6 +31,4 @@ const LoginTemplate: React.FC = () => {
       </div>
     </div>
   );
-};
-
-export default LoginTemplate;
+}
