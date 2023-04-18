@@ -5,6 +5,7 @@ import useTimeRemaining from "../../hooks/useTimeRemaining";
 import Image from "next/image";
 import seeIcon from "../../icons/see.png";
 import fingerUp from "../../icons/fingerUp.png";
+import PostReview from "../../components/posts/postReview";
 
 
 const data = {
@@ -24,7 +25,7 @@ export default function PostId({query}: { query: ParsedUrlQuery }) {
 
   return (
     <div className="mx-auto mt-2 w-full max-w-7xl px-4 lg:mt-[18px] lg:px-0">
-      <div>
+      <div className="mt-8 mb-14 w-full sm:mt-9">
         <h1 className="block break-all text-xl font-semibold leading-7 sm:text-3xl sm:leading-10">{data.title}</h1>
         <div className="flex items-center gap-x-1 text-sm font-normal text-gray-700">
           <a href={`/user/${data.userId}`}>
@@ -59,6 +60,7 @@ export default function PostId({query}: { query: ParsedUrlQuery }) {
           </div>
         </div>
       </div>
+        <PostReview />
     </div>
   );
 }

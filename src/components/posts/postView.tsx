@@ -88,7 +88,7 @@ export default function PostView() {
           <div className="flex flex-col w-[50px] text-center mr-2">
             <button className="place-self-center">
               <Image width={12} alt={"up"} src={upIcon}/>
-            </button>
+              </button>
             {/*<span className="text-[20px]">{Math.floor(Math.random() * 1000)}</span>*/}
           </div>
           <div>
