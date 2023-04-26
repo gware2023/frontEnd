@@ -82,13 +82,13 @@ const data = [
 export default function PostView() {
 
   return (
-    <div className="h-[500px]">
+    <div className="h-[500px] p-[10px] px-[50px]">
       {data.map((item, i) => (
         <div className="flex border-b-2 p-2 hover:bg-sky-100" key={i}>
           <div className="flex flex-col w-[50px] text-center mr-2">
             <button className="place-self-center">
               <Image width={12} alt={"up"} src={upIcon}/>
-              </button>
+            </button>
             {/*<span className="text-[20px]">{Math.floor(Math.random() * 1000)}</span>*/}
           </div>
           <div>
@@ -110,6 +110,13 @@ export default function PostView() {
           </div>
         </div>
       ))}
+      <div className="flex justify-center pt-1">
+        {data.map((item, i) => (
+          <div className={`${i === 3 ? "bg-pink-300 text-[20px] text-post-text py-1 px-2 rounded-full ml-2" : "bg-sky-100 text-[20px] text-post-text py-1 px-2 rounded-full ml-2"}`}>
+            {i + 1}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

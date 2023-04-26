@@ -1,10 +1,10 @@
 // 로그인 폼 컴포넌트
-import React, { useCallback, useState } from "react";
+import React, {useCallback, useState} from "react";
 import axios from "axios";
 import Error from "./Error";
-import { useRouter } from "next/router";
-import { useRecoilState } from "recoil";
-import { userStateAtom } from "../../recoil/user";
+import {useRouter} from "next/router";
+import {useRecoilState} from "recoil";
+import {userStateAtom} from "../../recoil/user";
 
 export default function LoginForm() {
   const [userId, setUserId] = useState("");
@@ -33,7 +33,7 @@ export default function LoginForm() {
           usrId: userId,
           usrPwd: password,
         })
-        .then(({ data }) => {
+        .then(({data}) => {
           // 성공시 데이터를 서버로 전송하고, 메인 페이지로 이동
           const recoilData = {
             jwt: data.data.accessToken,
@@ -54,7 +54,7 @@ export default function LoginForm() {
   return (
     <div>
       <div className="mb-[20px] text-[20px] font-bold text-green2">Login</div>
-      {error && <Error />}
+      {error && <Error/>}
       <form onSubmit={onSubmit}>
         <input
           onChange={onChangeId}

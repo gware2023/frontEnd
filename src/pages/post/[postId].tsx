@@ -8,20 +8,23 @@ import fingerUp from "../../icons/fingerUp.png";
 import PostReview from "../../components/posts/postReview";
 
 
-const data = {
-  "postId": 1,
-  "boardId": 1,
-  "title": "배고픈데 오늘 저녁은 뭘 시켜먹을까 ?",
-  "content": "내용",
-  "userId": 10000001,
-  "userName": "조성일",
-  "time": "2023-03-30 16:16:28",
-  "viewCount": 0,
-  "recommendationCount": 0
-};
+
 
 export default function PostId({query}: { query: ParsedUrlQuery }) {
+
   const [postData, setPostData] = useState<string>("<p><strong>asdd</strong></p><p>gdggdkssud</p><p><br></p><p>dkss안</p><p>녕ㄴ연연ㅇ</p><p><strong>asdd</strong></p><p>gdggdkssud</p><p><br></p><p>dkss안</p><p>녕ㄴ연연ㅇ</p><p><strong>asdd</strong></p><p>gdggdkssud</p><p><br></p><p>dkss안</p><p>녕ㄴ연연ㅇ</p>");
+
+  const data = {
+    "postId": 1,
+    "boardId": 1,
+    "title": "배고픈데 오늘 저녁은 뭘 시켜먹을까 ?",
+    "content": "내용",
+    "userId": 10000001,
+    "userName": "조성일",
+    "time": "2023-03-30 16:16:28",
+    "viewCount": 0,
+    "recommendationCount": 0
+  };
 
   return (
     <div className="mx-auto mt-2 w-full max-w-7xl px-4 lg:mt-[18px] lg:px-0">
