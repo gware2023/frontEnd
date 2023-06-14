@@ -1,5 +1,6 @@
 import { AxiosError } from "axios";
 import API from "../main/main";
+import setToken from "../../lib/auth/setToken";
 
 interface LoginProps {
   userId: string;
@@ -13,10 +14,9 @@ export const signIn = async ({ userId, password }: LoginProps) => {
       password,
     });
 
-    const token = response.data.access_token;
-    token && localStorage.setItem("accessToken", token);
+    setToken({ key: "accessToken", value: response.data.access_token });
 
-    return response;
+    return response.data;
   } catch (error) {
     if (error instanceof AxiosError) {
       const message = error.response?.data.message;
