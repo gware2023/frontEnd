@@ -6,6 +6,7 @@ import Header from "./Header";
 import Nav from "./Nav";
 import MyMenu from "./MyMenu";
 import Post from "../../pages/post";
+import Board from "../board/Board";
 
 export default function MainTemplate() {
   const [currentComponent, setCurrentComponent] = useState("Dashboard");
@@ -81,8 +82,8 @@ export default function MainTemplate() {
 
       <main className="min-h-[40vh]">
         <div className="py-6 mx-auto max-w-7xl sm:px-6 lg:px-8">
-          {/* {currentComponent === "Dashboard" && <Dashboard />} */}
-           {currentComponent === "Posts" && <Post />}
+          {currentComponent === "Dashboard" && <Board />}
+          {currentComponent === "Posts" && <Post />}
           {/* {currentComponent === "Projects" && <Projects />} */}
           {/* {currentComponent === "Organization" && <Organization />} */}
         </div>

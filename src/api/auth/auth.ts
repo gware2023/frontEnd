@@ -1,3 +1,4 @@
+import { AxiosError } from "axios";
 import API from "../main/main";
 
 interface LoginProps {
@@ -5,20 +6,21 @@ interface LoginProps {
   password: string;
 }
 
-export const login = async ({ userId, password }: LoginProps) => {
+export const signIn = async ({ userId, password }: LoginProps) => {
   try {
-    const response = await API.post("url", {
+    const response = await API.post("api/signin", {
       userId,
       password,
     });
+
     const token = response.data.access_token;
-    token && localStorage.setItem("user", token);
+    token && localStorage.setItem("accessToken", token);
+
     return response;
   } catch (error) {
-    if (error instanceof Error) {
-      console.error(error.message);
-    } else {
-      console.error(String(error));
+    if (error instanceof AxiosError) {
+      const message = error.response?.data.message;
+      throw new Error(message);
     }
   }
 };

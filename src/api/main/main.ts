@@ -1,10 +1,8 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "url",
-  headers: {
-    "Content-Type": "application/json",
-  },
+  baseURL: "http://neuma.iptime.org:8080",
+  headers: {},
 });
 
 export default API;
