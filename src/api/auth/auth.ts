@@ -1,5 +1,4 @@
-import { AxiosError } from "axios";
-import API from "../main/main";
+import axios, { AxiosError } from "axios";
 
 interface LoginProps {
   userId: string;
@@ -8,7 +7,7 @@ interface LoginProps {
 
 export const signIn = async ({ userId, password }: LoginProps) => {
   try {
-    const response = await API.post("api/signin", {
+    const response = await axios.post("api/signin", {
       userId,
       password,
     });

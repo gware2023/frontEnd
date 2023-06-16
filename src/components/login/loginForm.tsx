@@ -1,10 +1,10 @@
-// 로그인 폼 컴포넌트
 import React, { useCallback, useState } from "react";
 import axios from "axios";
 import Error from "./Error";
 import { useRouter } from "next/router";
 import { useSetRecoilState } from "recoil";
 import { userStateAtom } from "../../recoil/auth";
+import { signIn } from "../../api/auth/auth";
 
 export default function LoginForm() {
   const [userId, setUserId] = useState("");
@@ -24,22 +24,18 @@ export default function LoginForm() {
   const onSubmit = useCallback(
     async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
-      axios
-        .post("api/auth/login", {
-          usrId: userId,
-          usrPwd: password,
-        })
-        .then(({ data }) => {
-          setUserAtom({
-            jwt: data.data.accessToken,
-            refresh: data.data.refreshToken,
-          });
+      signIn({ userId, password })
+        .then((data) => {
+          // setUserAtom({
+          //   jwt: data.accessToken,
+          //   refresh: data.refreshToken,
+          // });
           setUserId("");
           setPassword("");
           router.push("/main");
         })
         .catch((error) => {
-          setError(true);
+          error && setError(true);
         });
     },
     [userId, password]

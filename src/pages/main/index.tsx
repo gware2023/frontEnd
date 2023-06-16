@@ -1,4 +1,4 @@
-import MainTemplate from "../../components/Main/MainTemplate";
+import MainTemplate from "../../components/main/MainTemplate";
 
 export default function Main() {
   return <MainTemplate />;
