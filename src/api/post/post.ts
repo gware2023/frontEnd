@@ -1,7 +1,4 @@
 import axios, { AxiosError } from "axios";
-import API from "../main/main";
-import { headers } from "next/dist/client/components/headers";
-import { contextType } from "react-quill";
 
 export const createPost = async (
   boardId: number,
@@ -11,7 +8,7 @@ export const createPost = async (
   const formData = new FormData();
 
   try {
-    const response = await API.post(
+    const response = await axios.post(
       "api/posts",
       {
         boardId,
@@ -34,7 +31,7 @@ export const createPost = async (
 
 export const getPost = async (postId: number) => {
   try {
-    const response = await API.get(`/api/posts/${postId}`);
+    const response = await axios.get(`/api/posts/${postId}`);
 
     return response.data;
   } catch (error) {
@@ -47,7 +44,7 @@ export const getPost = async (postId: number) => {
 
 export const getPostAttachedFiles = async (postId: number) => {
   try {
-    const response = await API.get(`api/posts/${postId}/attached-files`);
+    const response = await axios.get(`api/posts/${postId}/attached-files`);
   } catch (error) {
     if (error instanceof AxiosError) {
       const message = error.response?.data.message;
@@ -58,7 +55,7 @@ export const getPostAttachedFiles = async (postId: number) => {
 
 export const getPostImgFiles = async (postId: number) => {
   try {
-    const response = await API.get(`api/posts/${postId}/img-files`);
+    const response = await axios.get(`api/posts/${postId}/img-files`);
   } catch (error) {
     if (error instanceof AxiosError) {
       const message = error.response?.data.message;
@@ -69,7 +66,9 @@ export const getPostImgFiles = async (postId: number) => {
 
 export const downloadAttachedFile = async (storeFileName: string) => {
   try {
-    const response = await API.get(`api/posts/attached-files/${storeFileName}`);
+    const response = await axios.get(
+      `api/posts/attached-files/${storeFileName}`
+    );
 
     return response.data;
   } catch (error) {
@@ -82,7 +81,7 @@ export const downloadAttachedFile = async (storeFileName: string) => {
 
 export const downloadImgFile = async (storeFileName: string) => {
   try {
-    const response = await API.get(`api/posts/img-files/${storeFileName}`);
+    const response = await axios.get(`api/posts/img-files/${storeFileName}`);
 
     return response.data;
   } catch (error) {
@@ -95,7 +94,7 @@ export const downloadImgFile = async (storeFileName: string) => {
 
 export const getPosts = async (boardId: number, pageNum: number) => {
   try {
-    const response = await API.get("api/posts", {
+    const response = await axios.get("api/posts", {
       params: {
         boardId,
         pageNum,
@@ -113,7 +112,7 @@ export const getPosts = async (boardId: number, pageNum: number) => {
 
 export const updatePost = async (postId: number) => {
   try {
-    const response = await API.put(`api/posts/${postId}`, {});
+    const response = await axios.put(`api/posts/${postId}`, {});
 
     return response.data;
   } catch (error) {
@@ -126,7 +125,7 @@ export const updatePost = async (postId: number) => {
 
 export const deletePost = async (postId: number) => {
   try {
-    const response = await API.delete(`api/posts/${postId}`);
+    const response = await axios.delete(`api/posts/${postId}`);
 
     return response.data;
   } catch (error) {
@@ -144,7 +143,7 @@ export const searchPost = async (
   page: number
 ) => {
   try {
-    const response = await API.get("api/posts/search", {
+    const response = await axios.get("api/posts/search", {
       params: {
         boardId,
         type,
@@ -164,7 +163,7 @@ export const searchPost = async (
 
 export const recommendPost = async (postId: number) => {
   try {
-    const response = await API.patch(`api/posts/${postId}/recommend`);
+    const response = await axios.patch(`api/posts/${postId}/recommend`);
 
     return response.data;
   } catch (error) {
@@ -177,7 +176,7 @@ export const recommendPost = async (postId: number) => {
 
 export const cancelRecommendPost = async (postId: number) => {
   try {
-    const response = await API.patch(
+    const response = await axios.patch(
       `api/posts/${postId}/cancel-recommendation`
     );
 
@@ -195,7 +194,7 @@ export const voteSurvey = async (
   votedQuestionIdList: number[]
 ) => {
   try {
-    const response = await API.patch("api/posts/vote", {
+    const response = await axios.patch("api/posts/vote", {
       surveyId,
       votedQuestionIdList,
     });
@@ -211,7 +210,7 @@ export const voteSurvey = async (
 
 export const getSurvey = async (postId: number) => {
   try {
-    const response = await API.get(`api/posts/${postId}/survey`);
+    const response = await axios.get(`api/posts/${postId}/survey`);
 
     return response.data;
   } catch (error) {

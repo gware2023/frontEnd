@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 import PostMain from "../../components/posts/postMain";
-import Nav from "../../components/Main/Nav";
+import Nav from "../../components/main/Nav";
 function Index() {
   return (
     <div>
-      <PostMain/>
+      <PostMain />
     </div>
   );
 }

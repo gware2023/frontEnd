@@ -1,9 +1,8 @@
-import { AxiosError } from "axios";
-import API from "../main/main";
+import axios, { AxiosError } from "axios";
 
 export const createComment = async (content: string, postId: number) => {
   try {
-    const response = await API.post("api/comments", {
+    const response = await axios.post("api/comments", {
       content,
       postId,
     });
@@ -19,7 +18,7 @@ export const createComment = async (content: string, postId: number) => {
 
 export const getComments = async () => {
   try {
-    const response = await API.get("api/comments");
+    const response = await axios.get("api/comments");
 
     return response.data;
   } catch (error) {
@@ -32,7 +31,7 @@ export const getComments = async () => {
 
 export const deleteComment = async (commentId: number) => {
   try {
-    const response = await API.delete(`api/comments/${commentId}`);
+    const response = await axios.delete(`api/comments/${commentId}`);
 
     return response.data;
   } catch (error) {
