@@ -1,16 +1,16 @@
-// 로그인 폼 컴포넌트
 import React, { useCallback, useState } from "react";
 import axios from "axios";
 import Error from "./Error";
 import { useRouter } from "next/router";
-import { useRecoilState } from "recoil";
-import { userStateAtom } from "../../recoil/user";
+import { useSetRecoilState } from "recoil";
+import { userStateAtom } from "../../recoil/auth";
+import { signIn } from "../../api/auth/auth";
 
 export default function LoginForm() {
   const [userId, setUserId] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
-  const [userAtom, setUserAtom] = useRecoilState(userStateAtom);
+  const setUserAtom = useSetRecoilState(userStateAtom);
   const router = useRouter();
 
   const onChangeId = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
@@ -24,33 +24,22 @@ export default function LoginForm() {
   const onSubmit = useCallback(
     async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
-      axios
-        .post("api/auth/login", {
-          // 서버로 userId, password 전송
-          // usrId: "test",
-          // usrPwd: "qwe123!@#",
-          usrId: userId,
-          usrPwd: password,
-        })
-        .then(({ data }) => {
-          // 성공시 데이터를 서버로 전송하고, 메인 페이지로 이동
-          const recoilData = {
-            jwt: data.data.accessToken,
-            refresh: data.data.refreshToken,
-          };
-          setUserAtom(recoilData);
+      signIn({ userId, password })
+        .then((data) => {
+          // setUserAtom({
+          //   jwt: data.accessToken,
+          //   refresh: data.refreshToken,
+          // });
           setUserId("");
           setPassword("");
           router.push("/main");
         })
         .catch((error) => {
-          // 실패시 에러 컴포넌트 호출
-          setError(true);
+          error && setError(true);
         });
     },
     [userId, password]
   );
-
   return (
     <div>
       <div className="mb-[20px] text-[20px] font-bold text-green2">Login</div>

@@ -1,8 +1,8 @@
 import React, { useState, useCallback } from "react";
-import Footer from "../../components/Main/Footer";
-import Header from "../../components/Main/Header";
-import Nav from "../../components/Main/Nav";
-import MyProfileLogo from "../../components/Main/MyProfileLogo";
+import Footer from "../../components/main/Footer";
+import Header from "../../components/main/Header";
+import Nav from "../../components/main/Nav";
+import MyProfileLogo from "../../components/main/MyProfileLogo";
 import { useRouter } from "next/router";
 
 export default function Profile() {

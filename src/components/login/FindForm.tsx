@@ -3,7 +3,7 @@ import React, { useCallback, useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { useRecoilState } from "recoil";
-import { userStateAtom } from "../../recoil/user";
+import { userStateAtom } from "../../recoil/auth";
 import Error from "./Error";
 
 export default function FindForm() {

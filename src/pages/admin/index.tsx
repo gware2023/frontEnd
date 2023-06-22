@@ -1,9 +1,9 @@
 import React, { useState, useCallback } from "react";
 import { useRouter } from "next/router";
-import Nav from "../../components/Main/Nav";
-import Header from "../../components/Main/Header";
-import Footer from "../../components/Main/Footer";
-import AdminLogo from "../../components/Main/AdminLogo";
+import Nav from "../../components/main/Nav";
+import Header from "../../components/main/Header";
+import Footer from "../../components/main/Footer";
+import AdminLogo from "../../components/main/AdminLogo";
 
 export default function Admin() {
   const [currentComponent, setCurrentComponent] = useState("Employee");
