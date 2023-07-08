@@ -1,26 +1,34 @@
 import axios, { AxiosError } from "axios";
+import { PostParams } from "../../types/post/post";
+import { PostListParams } from "../../types/post/postList";
+import { SearchParams } from "../../types/post/search";
+import { VoteParams } from "../../types/post/vote";
 
-export const createPost = async (
-  boardId: number,
-  title: string,
-  content: string
-) => {
+export const createPost = async ({
+  postReq,
+  attachedFile,
+  imgFile,
+  surveyReq,
+}: PostParams) => {
+  const postBlob = new Blob([JSON.stringify(postReq)], {
+    type: "application/json",
+  });
+  const surveyBlob = new Blob([JSON.stringify(surveyReq)], {
+    type: "application/json",
+  });
+
   const formData = new FormData();
+  formData.append("req", postBlob);
+  formData.append("attachedFiles", attachedFile, "file.txt");
+  formData.append("imgFiles", imgFile, "img.png");
+  formData.append("surveyReq", surveyBlob);
 
   try {
-    const response = await axios.post(
-      "api/posts",
-      {
-        boardId,
-        title,
-        content,
+    const response = await axios.post("api/posts", formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
       },
-      {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      }
-    );
+    });
   } catch (error) {
     if (error instanceof AxiosError) {
       const message = error.response?.data.message;
@@ -92,7 +100,7 @@ export const downloadImgFile = async (storeFileName: string) => {
   }
 };
 
-export const getPosts = async (boardId: number, pageNum: number) => {
+export const getPosts = async ({ boardId, pageNum }: PostListParams) => {
   try {
     const response = await axios.get("api/posts", {
       params: {
@@ -110,9 +118,32 @@ export const getPosts = async (boardId: number, pageNum: number) => {
   }
 };
 
-export const updatePost = async (postId: number) => {
+export const updatePost = async ({
+  postId,
+  postReq,
+  attachedFile,
+  imgFile,
+  surveyReq,
+}: PostParams) => {
+  const postBlob = new Blob([JSON.stringify(postReq)], {
+    type: "application/json",
+  });
+  const surveyBlob = new Blob([JSON.stringify(surveyReq)], {
+    type: "application/json",
+  });
+
+  const formData = new FormData();
+  formData.append("req", postBlob);
+  formData.append("attachedFiles", attachedFile, "changedFile.txt");
+  formData.append("imgFiles", imgFile, "changedImg.png");
+  formData.append("surveyReq", surveyBlob);
+
   try {
-    const response = await axios.put(`api/posts/${postId}`, {});
+    const response = await axios.put(`api/posts/${postId}`, formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
 
     return response.data;
   } catch (error) {
@@ -136,12 +167,12 @@ export const deletePost = async (postId: number) => {
   }
 };
 
-export const searchPost = async (
-  boardId: number,
-  type: number,
-  keyword: string,
-  page: number
-) => {
+export const searchPost = async ({
+  boardId,
+  type,
+  keyword,
+  page,
+}: SearchParams) => {
   try {
     const response = await axios.get("api/posts/search", {
       params: {
@@ -189,10 +220,10 @@ export const cancelRecommendPost = async (postId: number) => {
   }
 };
 
-export const voteSurvey = async (
-  surveyId: number,
-  votedQuestionIdList: number[]
-) => {
+export const voteSurvey = async ({
+  surveyId,
+  votedQuestionIdList,
+}: VoteParams) => {
   try {
     const response = await axios.patch("api/posts/vote", {
       surveyId,

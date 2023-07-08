@@ -1,12 +1,12 @@
-import React from "react";
-import PostMain from "../../components/posts/postMain";
-import Nav from "../../components/main/Nav";
-function Index() {
+import MainTemplate from "../../components/main/MainTemplate";
+import PostContainer from "../../components/post/PostContainer";
+
+export default function Posts() {
   return (
     <div>
-      <PostMain />
+      <MainTemplate title="Post" elements={["Post", "Project", "Organization"]}>
+        <PostContainer />
+      </MainTemplate>
     </div>
   );
 }
-
-export default Index;

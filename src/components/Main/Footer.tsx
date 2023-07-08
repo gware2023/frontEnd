@@ -24,13 +24,7 @@ export default function Footer() {
               <dt className="inline-block mr-1">구성원</dt>
               <dd className="inline-block px-1 text-gray-500">neuma573</dd>
               <dd className="inline-block px-1 text-gray-500 border-l-[1px] border-gray2">
-                sung3441
-              </dd>
-              <dd className="inline-block px-1 text-gray-500 border-l-[1px] border-gray2">
                 codeehh
-              </dd>
-              <dd className="inline-block px-1 text-gray-500 border-l-[1px] border-gray2">
-                tankboyy
               </dd>
               <dd className="inline-block px-1 text-gray-500 border-l-[1px] border-gray2">
                 ijaesin

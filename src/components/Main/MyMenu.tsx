@@ -1,14 +1,9 @@
 interface MyMenuProps {
   onToggle: (e: React.MouseEvent<HTMLButtonElement>) => void;
   moveToProfile: () => void;
-  moveToAdmin: () => void;
 }
 
-export default function MyMenu({
-  moveToProfile,
-  moveToAdmin,
-  onToggle,
-}: MyMenuProps) {
+export default function MyMenu({ moveToProfile, onToggle }: MyMenuProps) {
   return (
     <div className="flex items-center ml-4">
       <span className="hidden">마이 메뉴</span>
@@ -28,12 +23,6 @@ export default function MyMenu({
             className="block px-4 py-2 text-sm text-gray3"
           >
             My profile
-          </button>
-          <button
-            onClick={moveToAdmin}
-            className="block px-4 py-2 text-sm text-gray3"
-          >
-            Admin
           </button>
           <button className="block px-4 py-2 text-sm text-gray3">
             Sign out
