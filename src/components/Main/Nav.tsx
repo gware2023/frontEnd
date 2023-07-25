@@ -21,7 +21,7 @@ export default function Nav({ elements, children }: NavProps) {
               <span className="hidden">네비게이터</span>
               {elements.map((element, i) => (
                 <Link
-                  href={element.toLowerCase()}
+                  href={`/${element.toLowerCase()}`}
                   className="px-3 py-2 text-sm font-medium rounded-md text-gray1 navi"
                   key={i}
                 >

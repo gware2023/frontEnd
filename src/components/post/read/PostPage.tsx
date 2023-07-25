@@ -3,18 +3,16 @@ import { getPost } from "../../../api/post/post";
 import { useEffect, useState } from "react";
 
 interface PostPageProps {
-  postId: string | string[] | undefined;
+  postId: number;
 }
 
 export default function PostPage({ postId }: PostPageProps) {
-  const [currentPost, setCurrentPost] = useState(null);
+  const [currentPost, setCurrentPost] = useState(sample_posts[postId]);
 
-  // useEffect(() => {
-  //   typeof postId == "string" &&
-  //     getPost(parseInt(postId)).then((data) => {
-  //       console.log(data);
-  //     });
-  // }, []);
-
-  return <div>{postId}</div>;
+  return (
+    <div>
+      <div>{currentPost.title}</div>
+      <div>{currentPost.content}</div>
+    </div>
+  );
 }
