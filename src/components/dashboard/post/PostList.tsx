@@ -1,12 +1,6 @@
 import PostItem from "./PostItem";
 import { useRouter } from "next/router";
 
-interface ListType {
-  postId: number;
-  title: string;
-  content: string;
-}
-
 interface PostListProps {
   posts: any[];
 }
@@ -20,6 +14,7 @@ export default function PostList({ posts }: PostListProps) {
         <PostItem
           title={post.title}
           content={post.content}
+          createDatetime={post.createDatetime}
           key={post.postId}
           onClick={(e: React.MouseEvent<HTMLDivElement>) => {
             router.push(`/post/${post.postId}`);
