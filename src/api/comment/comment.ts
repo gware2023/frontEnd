@@ -1,6 +1,7 @@
 import axios, { AxiosError } from "axios";
+import { CommentParams } from "../../types/comment/comment";
 
-export const createComment = async (content: string, postId: number) => {
+export const createComment = async ({ content, postId }: CommentParams) => {
   try {
     const response = await axios.post("api/comments", {
       content,
@@ -16,9 +17,13 @@ export const createComment = async (content: string, postId: number) => {
   }
 };
 
-export const getComments = async () => {
+export const getComments = async (postId: number) => {
   try {
-    const response = await axios.get("api/comments");
+    const response = await axios.get("api/comments", {
+      params: {
+        postId,
+      },
+    });
 
     return response.data;
   } catch (error) {

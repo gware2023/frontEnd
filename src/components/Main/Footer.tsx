@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Footer() {
   return (
     <footer className="mt-20 text-gray-600 bg-gray1">
@@ -12,7 +14,12 @@ export default function Footer() {
           className="absolute right-0 top-12"
         >
           <span className="hidden">Github 링크</span>
-          <img className="h-6" src="icon_github.png" />
+          <Image
+            width={25}
+            height={25}
+            src="/icon_github.png"
+            alt="github_logo"
+          />
         </a>
         <div className="flex justify-between">
           <div className="my-10">
@@ -24,13 +31,7 @@ export default function Footer() {
               <dt className="inline-block mr-1">구성원</dt>
               <dd className="inline-block px-1 text-gray-500">neuma573</dd>
               <dd className="inline-block px-1 text-gray-500 border-l-[1px] border-gray2">
-                sung3441
-              </dd>
-              <dd className="inline-block px-1 text-gray-500 border-l-[1px] border-gray2">
                 codeehh
-              </dd>
-              <dd className="inline-block px-1 text-gray-500 border-l-[1px] border-gray2">
-                tankboyy
               </dd>
               <dd className="inline-block px-1 text-gray-500 border-l-[1px] border-gray2">
                 ijaesin

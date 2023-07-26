@@ -5,30 +5,25 @@ import Footer from "./Footer";
 import Header from "./Header";
 import Nav from "./Nav";
 import MyMenu from "./MyMenu";
-import Post from "../../pages/post";
 
-export default function MainTemplate() {
-  const [currentComponent, setCurrentComponent] = useState("Dashboard");
+interface MainTemplateProps {
+  title: string;
+  elements: string[];
+  children?: React.ReactNode;
+}
+
+export default function MainTemplate({
+  title,
+  elements,
+  children,
+}: MainTemplateProps) {
   const [toggle, setToggle] = useState(true);
   const router = useRouter();
 
   useEffect(() => {
-    // 초기 렌더링시, 유저 데이터 받아오기
-  }, []);
-
-  // 네비게이션에서 선택
-  const onClick = useCallback(
-    (e: React.MouseEvent<HTMLButtonElement>) => {
-      setCurrentComponent(e.currentTarget.innerHTML);
-      changeFocus(e.currentTarget.innerHTML);
-    },
-    [currentComponent]
-  );
-
-  const changeFocus = useCallback((target: string) => {
     const navigators = document.querySelectorAll(".navi");
     navigators.forEach((navi) => {
-      if (navi.innerHTML === target) navi.classList.add("bg-green3");
+      if (navi.innerHTML === title) navi.classList.add("bg-green3");
       else navi.classList.remove("bg-green3");
     });
   }, []);
@@ -54,38 +49,16 @@ export default function MainTemplate() {
     router.push("/profile");
   }, []);
 
-  // 관리자 페이지로 이동
-  const moveToAdmin = useCallback(() => {
-    router.push("/admin");
-  }, []);
-
-  // 로그아웃
-  // const signOut = useCallback(() => {
-
-  // }, []);
-
   return (
     <div className="min-h-full">
-      <Nav
-        onClick={onClick}
-        elements={["Dashboard", "Board", "Projects", "Organization"]}
-      >
-        <MyMenu
-          onToggle={onToggle}
-          moveToProfile={moveToProfile}
-          moveToAdmin={moveToAdmin}
-        />
+      <Nav elements={elements}>
+        <MyMenu onToggle={onToggle} moveToProfile={moveToProfile} />
       </Nav>
 
-      <Header currentComponent={currentComponent} />
+      <Header title={title} />
 
       <main className="min-h-[40vh]">
-        <div className="py-6 mx-auto max-w-7xl sm:px-6 lg:px-8">
-          {/* {currentComponent === "Dashboard" && <DashBoard />} */}
-          {currentComponent === "Board" && <Post />}
-          {/* {currentComponent === "Projects" && <Projects />} */}
-          {/* {currentComponent === "Organization" && <Organization />} */}
-        </div>
+        <div className="flex justify-center mt-10">{children}</div>
       </main>
 
       <Footer />

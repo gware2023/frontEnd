@@ -1,5 +1,5 @@
 import React from "react";
-import LoginTemplate from "../../components/login/LoginTemplate";
+import LoginTemplate from "../../components/auth/LoginTemplate";
 
 function Login() {
   return (
