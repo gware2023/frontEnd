@@ -17,7 +17,7 @@ export default function Footer() {
           <Image
             width={25}
             height={25}
-            src="/icon_github.png"
+            src="/icon-github.png"
             alt="github_logo"
           />
         </a>
@@ -29,13 +29,13 @@ export default function Footer() {
                 (주) G. Ware
               </dd>
               <dt className="inline-block mr-1">구성원</dt>
-              <dd className="inline-block px-1 text-gray-500">neuma573</dd>
-              <dd className="inline-block px-1 text-gray-500 border-l-[1px] border-gray2">
-                codeehh
+              <dd className="inline-block px-1 text-gray-500">
+                neuma573 &#183;{" "}
               </dd>
-              <dd className="inline-block px-1 text-gray-500 border-l-[1px] border-gray2">
-                ijaesin
+              <dd className="inline-block px-1 text-gray-500">
+                codeehh &#183;{" "}
               </dd>
+              <dd className="inline-block px-1 text-gray-500 ">ijaesin</dd>
             </dl>
             <dl>
               <dt className="inline-block mr-1">업무</dt>
