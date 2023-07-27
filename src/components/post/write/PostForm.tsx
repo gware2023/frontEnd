@@ -35,7 +35,7 @@ export default function () {
   }, []);
 
   return (
-    <div className="flex justify-center mt-20">
+    <div className="flex justify-center mt-10">
       <div className="w-full p-10 mx-20 bg-gray1 rounded-3xl min-w-[760px]">
         <div className="mb-10 text-3xl font-bold text-center text-green2">
           New Post

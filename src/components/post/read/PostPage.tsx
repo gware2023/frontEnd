@@ -2,6 +2,7 @@ import { sample_posts } from "../../../sample";
 import { getPost } from "../../../api/post/post";
 import { recommendPost, cancelRecommendPost } from "../../../api/post/post";
 import Image from "next/image";
+import CommentList from "./comment/CommentList";
 
 interface PostPageProps {
   postId: number;
@@ -36,7 +37,7 @@ export default function PostPage({ postId }: PostPageProps) {
         </div>
       </div>
       <div className="text-lg text-green3">{currentPost.content}</div>
-      <div className="flex mx-auto mt-20 text-xl text-green3">
+      <div className="flex mx-auto mt-20 mb-20 text-xl text-green3">
         <button onClick={recommendUp}>
           <Image src="/up-arrow.png" alt="up_arrow" width={12} height={12} />
         </button>
@@ -49,6 +50,9 @@ export default function PostPage({ postId }: PostPageProps) {
             height={12}
           />
         </button>
+      </div>
+      <div>
+        <CommentList />
       </div>
     </div>
   );
