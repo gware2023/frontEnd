@@ -1,18 +1,10 @@
 import React, { ButtonHTMLAttributes, useEffect, useState } from "react";
 import PostItem from "./PostItem";
+import { sample_posts } from "../../../sample";
 import { useRouter } from "next/router";
 
-interface ListType {
-  postId: number;
-  title: string;
-  content: string;
-}
-
-interface PostListProps {
-  posts: any[];
-}
-
-export default function PostList({ posts }: PostListProps) {
+export default function PostList() {
+  const posts = sample_posts.slice().reverse();
   const [currentPage, setCurrentPage] = useState(1);
   const totalPage = Math.ceil(posts.length / 10);
   const router = useRouter();
@@ -52,6 +44,7 @@ export default function PostList({ posts }: PostListProps) {
             <PostItem
               title={post.title}
               content={post.content}
+              createDatetime={post.createDatetime}
               key={i}
               onClick={(e: React.MouseEvent<HTMLDivElement>) => {
                 router.push(`/post/${post.postId}`);

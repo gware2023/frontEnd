@@ -2,7 +2,6 @@ import { sample_posts } from "../../../sample";
 import { getPost } from "../../../api/post/post";
 import { recommendPost, cancelRecommendPost } from "../../../api/post/post";
 import Image from "next/image";
-
 import CommentContainer from "./comment/CommentContainer";
 
 interface PostPageProps {

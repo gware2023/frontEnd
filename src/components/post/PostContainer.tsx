@@ -1,6 +1,5 @@
 import Link from "next/link";
 import PostList from "./list/PostList";
-import { sample_posts } from "../../sample";
 
 export default function PostContainer() {
   return (
@@ -11,7 +10,7 @@ export default function PostContainer() {
       >
         Write New Post
       </Link>
-      <PostList posts={sample_posts.slice().reverse()} />
+      <PostList />
     </div>
   );
 }
