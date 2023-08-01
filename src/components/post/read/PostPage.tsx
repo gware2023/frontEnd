@@ -2,7 +2,8 @@ import { sample_posts } from "../../../sample";
 import { getPost } from "../../../api/post/post";
 import { recommendPost, cancelRecommendPost } from "../../../api/post/post";
 import Image from "next/image";
-import CommentList from "./comment/CommentList";
+
+import CommentContainer from "./comment/CommentContainer";
 
 interface PostPageProps {
   postId: number;
@@ -52,7 +53,7 @@ export default function PostPage({ postId }: PostPageProps) {
         </button>
       </div>
       <div>
-        <CommentList />
+        <CommentContainer />
       </div>
     </div>
   );
